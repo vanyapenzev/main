@@ -1,0 +1,52 @@
+#confirmMenuBlockWrapper {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    height: 96px;
+    width: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    background: rgba(7, 16, 48, 0.7);
+    border-radius: 141px;
+}
+
+#confirmMenuBlock {
+    position: relative;
+    width: 345px;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+}
+
+#confrimMenuAcceptButton {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    background: linear-gradient(270deg, #00AA3A 0%, #DBFF00 100%), radial-gradient(122.31% 217.44% at 1.56% 94.83%, #242F41 0%, #1D2229 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#confrimMenuCancelButton {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    background: linear-gradient(90deg, #AC43FF 0%, #4232FF 100%), radial-gradient(122.31% 217.44% at 1.56% 94.83%, #242F41 0%, #1D2229 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
