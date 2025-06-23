@@ -1,0 +1,835 @@
+#iphoneBlock {
+    position: absolute;
+    right: 22px;
+    bottom: 22px;
+    height: 530px;
+    width: 276px;
+    z-index: 99999;
+}
+
+#iphoneFrame {
+    background: #222;
+    border-radius: 44px;
+    box-shadow: inset 0 0 2px 2px #8d8d8e, inset 0 0 0 6px #d4d4d4;
+    height: 530px;
+    width: 276px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+#iphoneContent {
+    position: relative;
+    height: 501px;
+    width: 247px;
+    border-radius: 30px;
+    background: #485563;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+}
+
+#iphoneAppContent {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-radius: 25px;
+    transition: .4s all;
+}
+
+#iphoneStripe { }
+#iphoneStripe::before { 
+    bottom: 68px;
+    border: solid rgba(51, 51, 51, .25);
+    border-width: 0 6px;
+    content: "";
+    height: 5px;
+    left: 0;
+    position: absolute;
+    width: calc(100% - 12px);
+    z-index: 9;
+    pointer-events: none;
+}
+#iphoneStripe::after { 
+    top: 68px;
+    border: solid rgba(51, 51, 51, .25);
+    border-width: 0 6px;
+    content: "";
+    height: 5px;
+    left: 0;
+    position: absolute;
+    width: calc(100% - 12px);
+    z-index: 9;
+    pointer-events: none;
+}
+
+#iphoneHeader {
+    background: #222;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    height: 24px;
+    left: 50%;
+    position: absolute;
+    top: 15px;
+    width: 130px;
+    transform: translateX(-50%);
+}
+#iphoneHeader::before {
+    content: "";
+    position: absolute;
+    height: 6px;
+    width: 6px;
+    top: 0px;
+    background: radial-gradient(circle at bottom right, transparent 0, transparent 75%, #222 75%, #222 100%);
+    right: -5.5px;
+}
+#iphoneHeader::after {
+    content: "";
+    position: absolute;
+    height: 6px;
+    width: 6px;
+    top: 0px;
+    background: radial-gradient(circle at bottom left, transparent 0, transparent 75%, #222 75%, #222 100%);
+    left: -5.5px;
+}
+
+#iphonePower {
+    background: #c8cacb;
+    height: 80px;
+    position: absolute;
+    right: -2px;
+    top: 115px;
+    width: 3px;
+}
+#iphonePowerArea {
+    height: 80px;
+    position: absolute;
+    right: -15px;
+    top: 115px;
+    width: 15px;
+    background: transparent;
+}
+
+#iphoneBtns {
+    background: #c8cacb;
+    height: 26px;
+    left: -2px;
+    position: absolute;
+    top: 90px;
+    width: 3px;
+}
+#iphoneBtns::before {
+    background: #c8cacb;
+    content: "";
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 105px;
+    width: 3px;
+}
+#iphoneBtns::after {
+    background: #c8cacb;
+    content: "";
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 40px;
+    width: 3px;
+}
+#iphoneBtns.silent-mode {
+    background: #e283a3;
+}
+#iphoneBtnsArea {
+    height: 26px;
+    left: -14px;
+    position: absolute;
+    top: 90px;
+    width: 15px;
+}
+
+#iphoneSensors::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    margin-left: 25px;
+    width: 11px;
+    height: 11px;
+    background: #444;
+    border-radius: 50%;
+}
+#iphoneSensors::after {
+    content: "";
+    position: absolute;
+    top: 23px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 5px;
+    width: 40px;
+    background: #444;
+    border-radius: 2.5px;
+}
+
+#iphoneAppBottom {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 150px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .75);
+}
+#iphoneAppBottom.black {
+    background: rgba(0, 0, 0, .70);
+}
+#iphoneAppBottomArea {
+    position: absolute;
+    bottom: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 20px;
+    width: 150px;
+    z-index: 99999999;
+}
+
+.app-content {
+    flex: 1;
+    overflow: hidden;
+    max-width: 247px;
+    max-height: 501px;
+}
+
+.app-scroll-shadow {
+    overflow-x: hidden;
+    overflow-y: overlay;
+}
+.app-scroll-shadow::-webkit-scrollbar {
+    width: 4px;
+}
+.app-scroll-shadow::-webkit-scrollbar-track {
+    width: 4px;
+    border-radius: 50px;
+    background: transparent;
+}
+.app-scroll-shadow::-webkit-scrollbar-thumb {
+    width: 4px;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.app-scroll-none {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.app-scroll-none::-webkit-scrollbar {
+    width: 0;
+}
+.app-scroll-none::-webkit-scrollbar-track {
+    width: 0;
+}
+.app-scroll-none::-webkit-scrollbar-thumb {
+    width: 0;
+}
+
+.app-text {
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    color: #fff;
+}
+.app-text.f-m { font-family: 'Helvetica Neue Medium'; }
+.app-text.f-b { font-family: 'Helvetica Neue Bold'; }
+.app-text.s-10 { font-size: 10px; }
+.app-text.s-12 { font-size: 12px; }
+.app-text.s-16 { font-size: 16px; }
+.app-text.s-18 { font-size: 18px; }
+.app-text.s-20 { font-size: 20px; }
+.app-text.s-22 { font-size: 22px; }
+.app-text.s-24 { font-size: 24px; }
+.app-text.s-26 { font-size: 26px; }
+.app-text.s-28 { font-size: 28px; }
+.app-text.s-32 { font-size: 32px; }
+.app-text.w-700 { font-weight: 700; }
+.app-text.black { color: #000; }
+.app-text.blue { color: #0070c9; }
+.app-text.red { color: rgb(255, 49, 58); }
+.app-text.green { color: rgb(36, 138, 61); }
+.app-text.gray { color: rgb(142,142,147); }
+.app-text.blackgray { color: rgb(44, 44, 46); }
+.app-text.pink { color: rgb(255, 45, 85); }
+
+.app-c-black { color: #000 !important; fill: #000 !important; }
+.app-c-white { color: #fff !important; fill: #fff !important; }
+.app-c-blue { color: #0070c9 !important; fill: #0070c9 !important; }
+.app-c-red { color: rgb(255, 49, 58) !important; fill: rgb(255, 49, 58) !important; }
+.app-c-gray { color: rgb(142,142,147) !important; fill: rgb(142,142,147) !important; }
+
+.app-bg-blue { background: #0070c9; }
+
+.app-button {
+    background: rgb(212,212,217);
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Helvetica Neue Medium';
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+}
+
+.app-outline-button {
+    background: none;
+    border: 1.5px solid rgb(255, 255, 255);
+    outline: none;
+    box-shadow: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Helvetica Neue Medium';
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+}
+.app-outline-button:hover {
+    background: rgb(255, 255, 255);
+    color: #0070c9;
+}
+
+.app-label-button {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 2px;
+    font-family: 'Helvetica Neue';
+    font-weight: 700;
+    font-size: 14px;
+    color: rgb(142,142,147);
+}
+.app-label-button.blue {
+    color: #0070c9;
+}
+.app-label-button.blue:disabled {
+    color: rgb(102,102,107);
+}
+
+.app-input-block {
+    display: flex;
+}
+.app-input-block.outline-gray {
+    padding: 5px 8px;
+    background: rgb(232,232,237);
+    border: none;
+    border-radius: 8px;
+}
+.app-input-block.transparent {
+    padding: 5px 0px 5px 8px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+}
+.app-input {
+    min-width: 0px;
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: 'Helvetica Neue';
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+}
+
+.app-ms-bg {
+    background-image: url('./UI/mm-bg.jpg');
+    background-size: 100% 100%;
+}
+.app-ms-appBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.app-ms-appIco {
+    height: 45px;
+    width: 45px;
+    transition: .2s all;
+}
+.app-ms-appText {
+    font-family: "Helvetica Neue";
+    font-size: 10px;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0px 0px 2px #000;
+}
+.app-ms-appIco:hover, .app-ms-appIco:focus {
+    filter: brightness(80%);
+}
+.app-ms-appIco:active {
+    filter: brightness(60%);
+}
+
+.app-phone-menuTabIcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.app-phone-numberButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background: #babbae;
+    font-family: 'Helvetica Neue Bold';
+    font-size: 22px;
+    color: rgb(44, 44, 46);
+    transition: .25s all;
+}
+.app-phone-numberButton.blue {
+    background: #0070c9;
+    color: #fff;
+}
+.app-phone-numberButton.green {
+    background: rgb(36, 138, 61);
+    color: #fff;
+}
+.app-phone-numberButton.outline {
+    background: transparent;
+    color: #babbae;
+}
+.app-phone-numberButton:hover, .app-phone-numberButton:focus {
+    filter: brightness(90%);
+}
+.app-phone-numberButton:active {
+    filter: brightness(70%);
+}
+.app-phone-contactItem {
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.app-phoneCall-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background: #babbae;
+    font-family: 'Helvetica Neue Bold';
+    font-size: 22px;
+    color: #fff;
+    transition: .25s all;
+}
+.app-phoneCall-button.green {
+    background: rgb(22, 211, 69);
+}
+.app-phoneCall-button.red {
+    background: rgb(255, 49, 58);
+}
+.app-phoneCall-button:hover, .app-phoneCall-button:focus {
+    filter: brightness(90%);
+}
+.app-phoneCall-button:active {
+    filter: brightness(70%);
+}
+
+.app-messanger-chatItem {
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+.app-messanger-newMessageIco {
+    display: inline-block;
+    height: 5px;
+    width: 5px;
+    background: #0070c9;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+.app-messanger-mRow {
+    display: flex;
+}
+.app-messanger-mBlock {
+    margin-top: 5px;
+    padding: 10px;
+    background: #e4e4ea;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+.app-messanger-mBlock.my {
+    margin-left: auto;
+    margin-right: 5px;
+    background: #2095fd;
+}
+.app-messanger-mText {
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+}
+.app-messanger-mBlock.my .app-messanger-mText {
+    color: #fff;
+}
+.app-messanger-inputBlock {
+    display: flex;
+    padding: 5px 8px;
+    background: rgb(212,212,217);
+    border: none;
+    border-radius: 15px;
+}
+.app-messanger-input {
+    min-width: 0px;
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: 'Helvetica Neue';
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+}
+.app-messanger-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    color: #fff;;
+}
+.app-messanger-button.green {
+    background: rgb(36, 138, 61);
+}
+.app-messanger-button.blue {
+    background: #0070c9;
+}
+.app-messanger-button:hover, .app-messanger-button:focus {
+    filter: brightness(90%);
+}
+.app-messanger-button:active {
+    filter: brightness(70%);
+}
+.app-messanger-attachmentSelect-menu {
+    position: absolute;
+    width: calc(100% - 35px);
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background: rgb(232,232,237);
+    border-radius: 20px;
+}
+.app-messanger-attachmentSelect-item {
+    font-family: "Helvetica Neue";
+    font-size: 18px;
+    font-weight: 900;
+    color: #000;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+
+.app-mp-bg {
+    background-image: url('./UI/mp-bg.png');
+    background-size: 100% 100%;
+}
+
+.app-bank-bg {
+    background-image: url('./UI/bank-bg.png');
+    background-size: 100% 100%;
+}
+
+.app-gps-bg {
+    background-image: url('./UI/gps-bg.png');
+    background-size: 100% 100%;
+}
+
+.app-car-carBlock {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #5467f3;
+    transition: 0.4s all;
+    flex-shrink: 0;
+}
+.app-car-carBlock.column {
+    flex-direction: column;
+}
+.app-car-carItem-ico {
+    flex-shrink: 0;
+    height: 70px;
+    width: 100px;
+    pointer-events: none;
+}
+.app-car-carItem-text {
+    font-family: 'Helvetica Neue Medium';
+    font-size: 16px;
+    color: #000;
+    pointer-events: none;
+    transition: 0.4s all;
+}
+.app-car-carBlock:hover {
+    background: #5467f3;
+}
+.app-car-carBlock:hover > .app-car-carItem-text {
+    color: #fff;
+}
+.app-car-button {
+    background: none;
+    border: 2px solid #ff0000;
+    outline: none;
+    box-shadow: none;
+    padding: 10px 5px;
+    border-radius: 20px;
+    font-family: 'Helvetica Neue Medium';
+    font-weight: 500;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #000;
+}
+.app-car-button:hover {
+    background: #ff0000;
+    color: #fff;
+}
+.app-spcar-carBlock {
+    position: relative;
+    padding: 11px 5px 11px 79px;
+    background: linear-gradient(90deg, #D5D4E8 0%, #CEE6F3 100%);
+    border-radius: 7px;
+}
+.app-spcar-ico {
+    position: absolute;
+    width: 68px;
+    height: 53px;
+    left: 0px;
+    top: 0px;
+    border-radius: 7px;
+}
+
+#iphoneNotifyBlock {
+    position: absolute;
+    right: 22px;
+    height: 400px;
+    width: 300px;
+    z-index: 999999;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.smartphone-notify-item {
+	padding: 15px 10px;
+	margin-top: 5px;
+	background: rgba(7, 16, 48, 0.7);
+	border-radius: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.smartphone-notify-data {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.smartphone-notify-header {
+    font-family: 'Geometria Medium';
+    font-size: 16px;
+    color: #fff;
+}
+.smartphone-notify-text {
+    font-family: 'Geometria Regular';
+    font-size: 14px;
+    color: rgb(188, 188, 188);
+}
+
+.app-music-button {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-family: 'Helvetica Neue';
+    font-weight: 700;
+    font-size: 14px;
+    color: #000;
+    transition: 0.2s all ease;
+}
+.app-music-button:hover {
+    color: #0070c9;
+}
+
+.app-music-slider .rangeslider.rangeslider--horizontal {
+    position: relative;
+    height: 4px;
+    border-radius: 5px;   
+    background: #dfdfdf;
+}
+.app-music-slider .rangeslider__fill {
+    position: absolute;
+    height: 4px;
+    border-radius: 5px;
+    background: #919195;
+}
+.app-music-slider .rangeslider__handle {
+    position: absolute;
+    top: -3px !important;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%; 
+    background: #fff;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+}
+.app-music-slider .rangeslider__handle:after {
+    display: none;
+}
+
+.app-music-inputBlock {
+    display: flex;
+    padding: 5px 10px;
+    background: rgba(0,0,0, 0.1);
+    border: none;
+    border-radius: 10px;
+}
+.app-music-input {
+    min-width: 0px;
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: 'Helvetica Neue';
+    font-weight: 700;
+    font-size: 15px;
+    color: #000;
+}
+.app-music-button-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    color: #fff;;
+    background: #0070c9;
+}
+
+.app-rdMenu-button {
+    background: none;
+    border: 1.5px solid #0070c9;
+    outline: none;
+    box-shadow: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Helvetica Neue Medium';
+    font-weight: 700;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    background: #0070c9;
+}
+.app-rdMenu-button:hover {
+    background: rgb(255, 255, 255);
+    color: #0070c9;
+}
+
+.app-race-bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: url(UI/race-bg.png) no-repeat;
+    background-size: 100% 100%;
+    pointer-events: none;
+    opacity: 0.53;
+    border-radius: 38px;
+    z-index: 1;
+}
+.app-race-bg.shadow {
+    opacity: 0.23;
+}
+.app-race-raceItem-block {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 7px 5px;
+    background: rgba(206, 214, 221, 0.64);
+    border-radius: 3px;
+}
+.app-race-raceItem-player-block {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 15px 10px;
+    background: rgba(255, 255, 255, 0.26);
+    border-radius: 3px;
+}
+.app-race-btn-ico {
+    color: #fff;
+    fill: #fff;
+}
+.app-race-btn-ico:hover {
+    color: #91FF3A;
+    fill: #91FF3A;
+}
+
+.app-neon-color-picker .vc-chrome {
+    background: transparent;
+    box-shadow: none;
+}
+.app-neon-color-picker .vc-chrome-alpha-wrap {
+    display: none;
+}
+.app-neon-color-picker .vc-chrome-controls {
+    display: flex;
+    align-items: center;
+}
+.app-neon-color-picker .vc-chrome-hue-wrap { 
+    margin-bottom: 0px;
+}
+.app-neon-color-picker .vc-chrome-body {
+    position: relative;
+    background: transparent;
+    margin-top: 5px;
+    padding: 0px;
+}
+.app-neon-color-picker .vc-chrome-toggle-btn {
+    display: none;
+}
+.app-neon-color-picker .vc-chrome-fields-wrap {
+    padding-top: 10px;
+}
+.app-neon-color-picker .vc-chrome-field {
+    padding-left: 40px;
+    width: 95px;
+}
+.app-neon-color-picker .vc-editable-input {
+    background: #fff;
+    border: none;
+    border-radius: 6px;
+}
+.app-neon-color-picker .vc-input__input {
+    background: #fff !important;
+    color: #353535 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+.app-neon-color-picker .vc-input__label {
+    display: none !important;
+}
+.app-neon-color-picker .vc-chrome-color-wrap {
+    position: absolute;
+    bottom: -5px;
+}
