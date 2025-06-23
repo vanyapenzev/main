@@ -1,0 +1,167 @@
+.browser-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 95%;
+    width: 95%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background: #e8e9ea;
+    border-radius: 5px;
+    z-index: 99999;
+}
+
+.browser-left-buttons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+}
+.browser-left-button {
+    margin-left: 5px;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+}
+.browser-left-button:first-child {
+    margin-left: 0px;
+}
+
+.browser-tab-panel {
+    margin-top: 5px;
+    padding-left: 65px;
+    padding-right: 65px;
+    max-width: 95%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.browser-tab {
+    padding: 8px;
+    width: 180px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    background: #e2e3e4;
+    z-index: 2;
+}
+.browser-tab.active {
+    background: #fafbfc;
+    z-index: 3;
+}
+.browser-tab.before-active {
+}
+.browser-tab.after-active {
+}
+.browser-tab-name {
+    width: 160px;
+    display: inline-block;
+    font-family: 'Geometria Regular';
+    font-size: 12px;
+    color: #545454;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.browser-tab-close {
+    margin-left: auto;
+    padding: 2px 3px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+.browser-tab-close:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+.browser-tab-new {
+    margin-left: 15px;
+    padding: 2px 3px;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+.browser-tab-new:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.browser-url-panel {
+    padding: 5px 20px 5px 20px;
+    display: flex;
+    align-items: center;
+    background: #fafbfc;
+}
+.browser-url-panel-button {
+    margin-left: 15px;
+    height: 12px;
+    width: 15px;
+}
+.browser-url-panel-button:first-child {
+    margin-left: 0px;
+}
+.browser-url-input-block {
+    position: relative;
+    margin-left: 10px;
+    flex: 1;
+    display: flex;
+    padding: 5px;
+    background: #ffffff;
+}
+.browser-url-input {
+    flex: 1;
+    outline: none;
+    box-shadow: none;
+    background: none;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: 'Geometria Regular';
+    font-size: 12px;
+    color: #757778;
+}
+.browser-url-input-help-block {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+.browser-url-input-help-item {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.browser-url-input-help-item:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+.browser-url-input-help-item-name {
+    font-family: 'Geometria Regular';
+    font-size: 12px;
+    color: #2f3233;
+    pointer-events: none;
+}
+.browser-url-input-help-item-url {
+    margin-left: 20px;
+    font-family: 'Geometria Regular';
+    font-size: 12px;
+    color: #0d83be;
+    pointer-events: none;
+}
+
+
+.browser-site-block {
+    display: flex;
+    flex: 1;
+}
+.browser-iframe-block {
+    display: flex;
+    flex: 1;
+}
+.browser-iframe {
+    flex: 1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

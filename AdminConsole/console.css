@@ -1,0 +1,198 @@
+#consoleContainer {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    font-family: 'Geometria Regular';
+    color: #fff;
+}
+
+#consoleContainer.open {
+    display: flex;
+}
+
+.c-wrapper {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.c-input-block {
+    position: relative;
+    display: flex;
+    padding: 5px;
+    background: #444;
+}
+
+.c-input {
+    flex: 1;
+    min-width: 0px;
+    max-width: 100%;
+    background: none;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-family: 'Geometria Regular';
+    color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.c-input-help-block {
+    box-sizing: border-box;
+    padding: 5px;
+    padding-left: inherit;
+    padding-right: inherit;
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    width: 100%;
+    overflow: hidden;
+    background: #444;
+    font-size: 10px;
+    color: orange;
+}
+
+.c-scroll {
+    overflow-x: visible;
+    overflow-y: auto;
+}
+.c-scroll::-webkit-scrollbar {
+    width: 0px;
+}
+.c-scroll::-webkit-scrollbar-track {
+    width: 0px;
+}
+.c-scroll::-webkit-scrollbar-thumb {
+    width: 0px;
+}
+
+.c-buttons > .c-button {
+    margin-left: 10px;
+}
+
+.c-buttons > .c-button:first-child {
+    margin-left: 0px;
+}
+
+.c-button {
+    padding: 8px 15px;
+    background: #555;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-family: 'Geometria Regular';
+    color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+}
+.c-button:hover {
+    background: #666;
+}
+.c-button.selected {
+    background: #444;
+}
+.c-button.red {
+    color: #e72139;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.c-checkbox {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background: #555;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.c-checkbox:hover, .c-checkbox:focus {
+    background: #666;
+}
+
+.c-checkbox:checked:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translateX(-50%) translateY(-50%);
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: #999;
+}
+
+.c-main-list {
+    height: 280px;
+    padding: 0;
+    overflow: auto;
+    list-style: none;
+}
+
+.c-main-list > li {
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+.c-main-list > li.help {
+    font-size: 14px;
+    border-left: 5px solid #fff;
+    padding-left: 5px;
+}
+
+.c-main-list > li.success {
+    font-size: 14px;
+    color: #7ed321;
+    border-left: 5px solid #7ed321;
+    padding-left: 5px;
+}
+
+.c-main-list > li.error {
+    font-size: 14px;
+    color: #e72139;
+    border-left: 5px solid #e72139;
+    padding-left: 5px;
+}
+
+#consoleNotifyBlock {
+	height: 30vh;
+	width: 55vw;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	flex-shrink: 0;
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	overflow: hidden;
+	pointer-events: none;
+}
+
+#consoleNotifyBlock.open {
+    top: 420px;
+}
+
+.console-notify {
+	padding: 6px 15px;
+	margin-top: 5px;
+	background-color: rgba(0, 0, 0, 0.9);
+	border: 1px solid #fff;
+	word-wrap: break-word;
+	font-family: 'Geometria Regular';
+	font-size: 18px;
+	font-weight: 700;
+	color: #fff;
+}
+
+.admin-chat > li {
+    font-size: 13px;
+}

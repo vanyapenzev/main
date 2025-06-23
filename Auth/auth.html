@@ -1,0 +1,552 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="package://Lib/css/fonts.css">
+    <link rel="stylesheet" href="package://Lib/css/help.css">
+    <link rel="stylesheet" href="package://Menu/UI/style.css">
+    <script type="text/javascript" src="package://Lib/js/jquery.js"></script>
+    <script type="text/javascript" src="package://Lib/js/vue.js"></script>
+    <script type="text/javascript" src="package://Lib/js/rage-rpc.min.js"></script>
+    <script type="text/javascript" src="package://Lib/js/serverAPI.js"></script>
+    <script type="text/javascript" src="package://Lib/js/preventSelection.js"></script>
+    <meta charset="utf-8" />
+</head>
+<body>
+
+    <style>
+
+        .server-bg-1 {
+            background: url('https://files.gta5rp.com/auth/1-bg.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .server-bg-2 {
+            background: url('https://files.gta5rp.com/auth/2-bg.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .server-bg-3 {
+            background: url('https://files.gta5rp.com/auth/3-bg.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .server-bg-4 {
+            background: url('https://files.gta5rp.com/auth/4-bg.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .server-bg-5 {
+            background: url('https://files.gta5rp.com/auth/5-bg.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .server-bg-6 {
+            background: url('https://files.gta5rp.com/auth/6-bg.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .server-bg-7 {
+            background: url('https://files.gta5rp.com/auth/7-bg.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .server-bg-8 {
+            background: url('https://files.gta5rp.com/auth/8-bg.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .server-bg-9 {
+            background: url('https://files.gta5rp.com/auth/9-bg.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .server-bg-10 {
+            background: url('https://files.gta5rp.com/auth/10-bg.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .auth-form-block {
+            position: absolute; 
+            right: 5%; 
+            top: 50%; 
+            transform: translateY(-50%);
+        }
+
+        .auth-input {
+            padding: 15px;
+            border-radius: 25px;
+            border: none;
+        }
+        .auth-input > .menu-input {
+            color: #fff;
+        }
+
+        .auth-input.server-1 {
+            background: rgba(66, 74, 102, 0.25);
+        }
+        .auth-input.server-2 {
+            background: rgba(76, 76, 76, 0.25);
+        }
+        .auth-input.server-3 {
+            background: rgba(76, 76, 76, 0.25);
+        }
+        .auth-input.server-4 {
+            background: rgba(78, 78, 97, 0.25);
+        }
+        .auth-input.server-5 {
+            background: rgba(76, 76, 76, 0.25);
+        }
+        .auth-input.server-6 {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        .auth-input.server-7 {
+            background: rgba(144, 144, 144, 0.25);
+        }
+        .auth-input.server-8 {
+            background: rgba(149, 149, 149, 0.25);
+        }
+        .auth-input.server-9 {
+            background: rgba(144, 144, 144, 0.25);
+        }
+        .auth-input.server-10 {
+            background: rgba(144, 144, 144, 0.25);
+        }
+
+        .auth-btn {
+            padding: 15px;
+            border-radius: 25px;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            transition: 0.5s;
+            background-size: 200% auto;
+        }
+        .auth-btn:hover {
+            background-position: right center;
+        }
+
+        .auth-btn.server-1 {
+            background-image: linear-gradient(45deg, #0072ee 0%, #11ade4 51%, #0072ee 100%);
+        }
+        .auth-btn.server-2 {
+            background-image: linear-gradient(45deg, #ff2424 0%, #ff00d2 51%, #ff2424 100%);
+        }
+        .auth-btn.server-3 {
+            background-image: linear-gradient(45deg, #fe8926 0%, #ffc339 51%, #fe8926 100%);
+        }
+        .auth-btn.server-4 {
+            background-image: linear-gradient(45deg, #6800dd 0%, #a503e1 51%, #6800dd 100%);
+        }
+        .auth-btn.server-5 {
+            background-image: linear-gradient(45deg, #ff2424 0%, #ff8a00 51%, #ff2424 100%);
+        }
+        .auth-btn.server-6 {
+            background-image: linear-gradient(45deg, #e4407a 0%, #ff7263 51%, #e4407a 100%);
+        }
+        .auth-btn.server-7 {
+            background-image: linear-gradient(45deg, #ff00de 0%, #f76234 25%, #ffd776 50%, #f76234 75%, #ff00de 100%);
+        }
+        .auth-btn.server-8 {
+            background-image: linear-gradient(45deg, #6800dd 0%, #7070ff 51%, #6800dd 100%);
+        }
+        .auth-btn.server-9 {
+            background-image: linear-gradient(45deg, #739ece 0%, #bdd1ee 51%, #739ece 100%);
+        }
+        .auth-btn.server-10 {
+            background-image: linear-gradient(45deg, #1c5c64 0%, #1abc85 51%, #1c5c64 100%);
+        }
+
+        .auth-input-ico {
+            height: 22px;
+            width: 22px;
+            margin-right: 5px;
+        }
+        .auth-input-ico.server-1 > g * {
+            fill: url(#authIcoGrad1);
+        }
+        .auth-input-ico.server-2 > g * {
+            fill: url(#authIcoGrad2);
+        }
+        .auth-input-ico.server-3 > g * {
+            fill: url(#authIcoGrad2);
+        }
+        .auth-input-ico.server-4 > g * {
+            fill: url(#authIcoGrad1);
+        }
+        .auth-input-ico.server-5 > g * {
+            fill: url(#authIcoGrad2);
+        }
+        .auth-input-ico.server-6 > g * {
+            fill: url(#authIcoGrad2);
+        }
+        .auth-input-ico.server-7 > g * {
+            fill: url(#authIcoGrad2);
+        }
+        .auth-input-ico.server-8 > g * {
+            fill: url(#authIcoGrad1);
+        }
+        .auth-input-ico.server-9 > g * {
+            fill: url(#authIcoGrad2);
+        }
+        .auth-input-ico.server-10 > g * {
+            fill: url(#authIcoGrad2);
+        }
+
+        .auth-news-block {
+            display: none;
+            position: relative;
+            height: 255px;
+            width: 452px;
+        }
+        .auth-news-block:before {
+            content: '';
+            position: absolute;
+            left: -1px;
+            bottom: -1px;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5) 5%, transparent 40%, transparent);
+            border-radius: 15px;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .auth-news-img {
+            position: absolute;
+            height: 255px;
+            width: 452px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px 1px #000;
+            transition: all 0.5s;
+            z-index: 1;
+        }
+        .auth-news-img:hover {
+            box-shadow: 0px 0px 20px 1px #000;
+        }
+        .auth-news-date {
+            position: absolute;
+            left: 10px;
+            bottom: 6px;
+            font-family: 'Geometria-Light';
+            font-size: 12;
+            color: #fff;
+            text-shadow: 0px 0px 2px black;
+            z-index: 3;
+        }
+        .auth-news-img-corner {
+            position: absolute;
+            right: -7px;
+            bottom: -5px;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        @media screen and (min-width: 1300px) {
+
+            .auth-news-block {
+                display: block;
+            }
+
+            .auth-form-block {
+                position: absolute; 
+                right: inherit;
+                left: 50%; 
+                top: 50%; 
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .auth-character-block {
+            position: relative;
+            width: 480px;
+            height: 147px;
+            background: linear-gradient(90.1deg, rgba(38, 54, 94, 0.82) 0.07%, rgba(17, 27, 44, 0.82) 99.91%);
+            box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.39);
+            border-radius: 9px 75px;
+        }
+        .auth-character-block:hover {
+            background: linear-gradient(90.1deg, rgba(55, 76, 129, 0.82) 0.07%, rgba(17, 27, 44, 0.82) 99.91%);
+        }
+        .auth-character-block.active {
+            background: linear-gradient(90.1deg, rgba(64, 86, 140, 0.82) 0.07%, rgba(30, 48, 75, 0.82) 99.91%);
+        }
+        .auth-character-block.ban {
+            background: linear-gradient(90.2deg, rgba(90, 0, 43, 0.82) 0.16%, rgba(17, 27, 44, 0.82) 50.51%);
+        }
+
+    </style>
+
+    <svg height="0" width="0">
+        <defs>
+            <linearGradient id="authIcoGrad1" gradientTransform="rotate(30)">
+                <stop offset="45%" stop-color="#0072ee"></stop>
+                <stop offset="99%" stop-color="#11ade4"></stop>
+            </linearGradient>
+            <linearGradient id="authIcoGrad2" gradientTransform="rotate(30)">
+                <stop offset="45%" stop-color="#ff6513"></stop>
+                <stop offset="99%" stop-color="#ffde37"></stop>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <div id="authMenu">
+    <template>
+        <div v-if="authStep == 0 && loaded">
+
+            <div class="auth-form-block">
+                <img src="logo.png" style="height: 100px;">
+                <div class="menu-text f-l s-24" style="position: absolute; top: 30px; left: 190px;">{{ serverData.serverName }}</div>
+                <div class="d-flex mt-20">
+                    <div @click="authMode = 1;" class="menu-text s-24" :class="{'f-l': authMode === 0}" :style="{'color': authMode === 0 ? 'rgba(255, 255, 255, 0.45)' : '#fff'}">Регистрация</div>
+                    <div @click="authMode = 0;" class="menu-text s-24 ml-20" :class="{'f-l': authMode === 1}" :style="{'color': authMode === 1 ? 'rgba(255, 255, 255, 0.45)' : '#fff'}">Авторизация</div>
+                </div>
+                <div v-if="authMode === 0" class="d-flex column mt-20">
+                    <div :class="'menu-input-block auth-input server-' + serverData.serverId + ' flex-1'">
+                        <svg :class="'auth-input-ico server-' + serverData.serverId + ''" width="127" height="141.3" viewBox="0 0 127 141.3">
+                            <g>
+                                <path d="M63.5,73A36.5,36.5,0,1,0,27,36.5,36.6,36.6,0,0,0,63.5,73Zm0-63A26.5,26.5,0,1,1,37,36.5,26.5,26.5,0,0,1,63.5,10Z"/>
+                                <path d="M87.8,79.6A59.7,59.7,0,0,1,63.4,85a57.8,57.8,0,0,1-24.2-5.4A39.3,39.3,0,0,0,0,118.9v13a232.1,232.1,0,0,0,64.6,9.4,211.9,211.9,0,0,0,62.4-9.4v-13A39.3,39.3,0,0,0,87.8,79.6ZM117,124.4a202.7,202.7,0,0,1-52.4,6.9,221.7,221.7,0,0,1-54.6-7v-5.4A29.3,29.3,0,0,1,37.3,89.7,69.2,69.2,0,0,0,63.4,95a70.8,70.8,0,0,0,26.2-5.3A29.3,29.3,0,0,1,117,118.9Z"/>
+                            </g>
+                        </svg>
+                        <input v-if="!serverData.isAutoLoginEnabled" v-model="formAuth.login" class="menu-input" placeholder="Логин">
+                        <input v-if="serverData.isAutoLoginEnabled" v-model="formAuth.login" class="menu-input" placeholder="Логин" readonly>
+                    </div>
+                    <div :class="'menu-input-block auth-input server-' + serverData.serverId + ' flex-1 mt-5'">
+                        <svg :class="'auth-input-ico server-' + serverData.serverId + ''" width="127" height="128" viewBox="0 0 127 128">
+                            <g>
+                                <path d="M105,44H93V30.1C93,13.5,79.8,0,63.5,0S34,13.5,34,30.1V44H22A21.9,21.9,0,0,0,0,66v40a21.9,21.9,0,0,0,22,22h83a21.9,21.9,0,0,0,22-22V66A21.9,21.9,0,0,0,105,44ZM44,30.1C44,19,52.7,10,63.5,10S83,19,83,30.1V44H44ZM117,106a12,12,0,0,1-12,12H22a12,12,0,0,1-12-12V66A12,12,0,0,1,22,54h83a12,12,0,0,1,12,12Z"/>
+                                <circle cx="39" cy="84.5" r="7.5"/>
+                                <circle cx="64" cy="84.5" r="7.5"/>
+                                <circle cx="88" cy="84.5" r="7.5"/>
+                            </g>
+                        </svg>
+                        <input v-if="!serverData.isAutoLoginEnabled" v-model="formAuth.pass" @keyup.enter="auth();" type="password" class="menu-input" placeholder="Пароль">
+                        <input v-if="serverData.isAutoLoginEnabled" v-model="formAuth.pass" @keyup.enter="auth();" type="password" class="menu-input" placeholder="Автовход. Пароль не нужен" readonly>
+                    </div>
+                    <div v-if="serverData.enableServerPass" :class="'menu-input-block auth-input server-' + serverData.serverId + ' flex-1 mt-5'">
+                        <svg :class="'auth-input-ico server-' + serverData.serverId + ''" width="127" height="128" viewBox="0 0 127 128">
+                            <g>
+                                <path d="M105,44H93V30.1C93,13.5,79.8,0,63.5,0S34,13.5,34,30.1V44H22A21.9,21.9,0,0,0,0,66v40a21.9,21.9,0,0,0,22,22h83a21.9,21.9,0,0,0,22-22V66A21.9,21.9,0,0,0,105,44ZM44,30.1C44,19,52.7,10,63.5,10S83,19,83,30.1V44H44ZM117,106a12,12,0,0,1-12,12H22a12,12,0,0,1-12-12V66A12,12,0,0,1,22,54h83a12,12,0,0,1,12,12Z"/>
+                                <circle cx="39" cy="84.5" r="7.5"/>
+                                <circle cx="64" cy="84.5" r="7.5"/>
+                                <circle cx="88" cy="84.5" r="7.5"/>
+                            </g>
+                        </svg>
+                        <input v-model="formAuth.serverPass" type="password" class="menu-input" placeholder="Пароль от сервера">
+                    </div>
+                    <button @click="auth();" :class="'menu-btn auth-btn server-' + serverData.serverId + ' flex-1 mt-20'">Войти</button>
+                    <div v-if="!limitError && formAuth.error" class="menu-text" style="position: absolute; top: calc(100% + 15px); left: 50%; transform: translateX(-50%); max-width: 400px;">{{ formAuth.error }}</div>
+                    <div v-if="!limitError && formAuth.error == '' && /[а-яА-ЯЁё]/.test(formAuth.pass)" class="menu-text" style="position: absolute; top: calc(100% + 15px); left: 50%; transform: translateX(-50%); max-width: 400px;">В пароле не может быть русских букв</div>
+                    <div v-if="limitError" class="menu-text menu-color-green text-center" style="position: absolute; top: calc(100% + 15px); left: 50%; transform: translateX(-50%); width: 400px;">
+                        <div>Вы успешно вошли в аккаунт.</div>
+                        <div>Сейчас сервер переполнен.</div>
+                        <div>Ваш номер в очереди: {{ queue }}.</div>
+                        <div>Пожалуйста подождите.</div>
+                        <div>Вы будете автоматически подключены.</div>
+                    </div>
+                </div>
+                <div v-if="authMode === 1" class="d-flex column mt-20">
+                    <div :class="'menu-input-block auth-input server-' + serverData.serverId + ' flex-1'">
+                        <svg :class="'auth-input-ico server-' + serverData.serverId + ''" width="127" height="141.3" viewBox="0 0 127 141.3">
+                            <g>
+                                <path d="M63.5,73A36.5,36.5,0,1,0,27,36.5,36.6,36.6,0,0,0,63.5,73Zm0-63A26.5,26.5,0,1,1,37,36.5,26.5,26.5,0,0,1,63.5,10Z"/>
+                                <path d="M87.8,79.6A59.7,59.7,0,0,1,63.4,85a57.8,57.8,0,0,1-24.2-5.4A39.3,39.3,0,0,0,0,118.9v13a232.1,232.1,0,0,0,64.6,9.4,211.9,211.9,0,0,0,62.4-9.4v-13A39.3,39.3,0,0,0,87.8,79.6ZM117,124.4a202.7,202.7,0,0,1-52.4,6.9,221.7,221.7,0,0,1-54.6-7v-5.4A29.3,29.3,0,0,1,37.3,89.7,69.2,69.2,0,0,0,63.4,95a70.8,70.8,0,0,0,26.2-5.3A29.3,29.3,0,0,1,117,118.9Z"/>
+                            </g>
+                        </svg>
+                        <input v-model="formReg.login" class="menu-input" placeholder="Логин">
+                    </div>
+                    <div :class="'menu-input-block auth-input server-' + serverData.serverId + ' flex-1 mt-5'">
+                        <svg :class="'auth-input-ico server-' + serverData.serverId + ''" width="127" height="87" viewBox="0 0 127 87">
+                            <g>
+                                <path d="M120.7,0H6.3A6.3,6.3,0,0,0,0,6.3V81a6.3,6.3,0,0,0,6.3,6.3H120.7A6.3,6.3,0,0,0,127,81V6.3A6.3,6.3,0,0,0,120.7,0ZM10,19.6,39.7,47.5,10,70.6ZM66.9,53a5.2,5.2,0,0,1-6.8,0L14.4,10h98.2ZM47,54.4l6.3,5.8a14.7,14.7,0,0,0,20.4,0l6.8-6.3,29.3,23.4H17.6ZM87.9,47,117,19.6V70.2Z"/>
+                            </g>
+                        </svg>
+                        <input v-model="formReg.email" class="menu-input" placeholder="Почта">
+                    </div>
+                    <div :class="'menu-input-block auth-input server-' + serverData.serverId + ' flex-1 mt-5'">
+                        <svg :class="'auth-input-ico server-' + serverData.serverId + ''" width="127" height="128" viewBox="0 0 127 128">
+                            <g>
+                                <path d="M105,44H93V30.1C93,13.5,79.8,0,63.5,0S34,13.5,34,30.1V44H22A21.9,21.9,0,0,0,0,66v40a21.9,21.9,0,0,0,22,22h83a21.9,21.9,0,0,0,22-22V66A21.9,21.9,0,0,0,105,44ZM44,30.1C44,19,52.7,10,63.5,10S83,19,83,30.1V44H44ZM117,106a12,12,0,0,1-12,12H22a12,12,0,0,1-12-12V66A12,12,0,0,1,22,54h83a12,12,0,0,1,12,12Z"/>
+                                <circle cx="39" cy="84.5" r="7.5"/>
+                                <circle cx="64" cy="84.5" r="7.5"/>
+                                <circle cx="88" cy="84.5" r="7.5"/>
+                            </g>
+                        </svg>
+                        <input v-model="formReg.pass" type="password" class="menu-input" placeholder="Пароль">
+                    </div>
+                    <div :class="'menu-input-block auth-input server-' + serverData.serverId + ' flex-1 mt-5'">
+                        <svg :class="'auth-input-ico server-' + serverData.serverId + ''" width="128" height="130" viewBox="0 0 128 130">
+                            <g>
+                                <path d="M78,120H25.4A15.5,15.5,0,0,1,10,104.5v-37A15.5,15.5,0,0,1,25.4,52h77a15.4,15.4,0,0,1,13.4,7.9,5,5,0,1,0,8.7-5A25.6,25.6,0,0,0,102.4,42H93.5V30.1C93.5,13.5,80.3,0,64,0S34.5,13.5,34.5,30.1V42H25.4A25.5,25.5,0,0,0,0,67.5v37A25.5,25.5,0,0,0,25.4,130H78a5,5,0,0,0,5-5A5,5,0,0,0,78,120ZM44.5,30.1C44.5,19,53.2,10,64,10s19.5,9,19.5,20.1V42h-39Z"/>
+                                <circle cx="39.5" cy="84.5" r="7.5"/>
+                                <circle cx="64.5" cy="84.5" r="7.5"/>
+                                <circle cx="90.5" cy="84.5" r="7.5"/>
+                                <path d="M125,69.4a5.1,5.1,0,0,0-6.6,2.6l-18.3,41.6L81.4,96.7a5,5,0,0,0-7.1.4,4.9,4.9,0,0,0,.3,7l23.9,21.6a5.5,5.5,0,0,0,3.4,1.3h1a5,5,0,0,0,3.6-2.9l21.1-48A5.1,5.1,0,0,0,125,69.4Z"/>
+                            </g>
+                        </svg>
+                        <input v-model="formReg.confirmPass" type="password" class="menu-input" placeholder="Повтор пароля">
+                    </div>
+                    <button @click="reg();" :class="'menu-btn auth-btn server-' + serverData.serverId + ' flex-1 mt-20'">Создать аккаунт</button>
+                    <div v-if="formReg.error" class="menu-text" style="position: absolute; top: calc(100% + 15px); left: 50%; transform: translateX(-50%); max-width: 400px;">{{ formReg.error }}</div>
+                </div>
+            </div>
+
+            <img :src="'https://files.gta5rp.com/auth/' + serverData.serverId + '-figure.png'" style="position: absolute; bottom: 0; left: 0; height: 100%; z-index: -999;">
+
+            <div style="position: absolute; right: 60px; top: 50%; transform: translateY(-50%);">
+                <div v-for="n in news" :class="'auth-news-block list-mt-20'">
+                    <img @click="openNews(n.id)" class="auth-news-img" :src="n.img">
+                    <img class="auth-news-img-corner" :src="'https://files.gta5rp.com/auth/' + serverData.serverId + '-corner.png'">
+                    <div class="auth-news-date">{{ n.date }}</div>
+                </div>
+            </div>
+
+        </div>
+        <div v-if="authStep == 1">
+
+            <div style="position: absolute; top: 40px; left: 40px; background: rgba(34, 48, 85, 0.82); box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.39); border-radius: 9px; padding: 25px;">
+                <div class="yk-text w-6 s-20 text-center">{{ mainLogin }}, у Вас</div>
+                <div class="d-flex center mt-10">
+                    <svg width="66" height="27" viewBox="0 0 66 27">
+                        <path d="M10.843 8.05264C14.0958 8.19475 25.4573 6.15791 25.5987 13.6421C25.5987 15.5369 25.5987 19.3737 18.0087 19.3737H12.3044V13.6421L8.48583 15.5369V23.2105H19.423C20.7703 23.2362 22.1095 22.9942 23.3635 22.4983C24.6175 22.0025 25.7616 21.2625 26.7301 20.3211C27.6071 19.4504 28.2978 18.4088 28.7599 17.2603C29.222 16.1118 29.4457 14.8806 29.4173 13.6421C29.4457 12.4037 29.222 11.1724 28.7599 10.0239C28.2978 8.87541 27.6071 7.83387 26.7301 6.96317C25.7616 6.02169 24.6175 5.28177 23.3635 4.7859C22.1095 4.29003 20.7703 4.048 19.423 4.0737H7.54297L10.843 8.05264Z" fill="#495779"/>
+                        <path d="M66 18.7579V0H8.20286C6.02732 0 3.9409 0.868362 2.40256 2.41406C0.864227 3.95975 0 6.05616 0 8.24211L0 27H57.7971C58.8744 27 59.941 26.7868 60.9362 26.3726C61.9315 25.9584 62.8357 25.3513 63.5974 24.5859C64.3591 23.8206 64.9634 22.912 65.3756 21.912C65.7878 20.912 66 19.8403 66 18.7579ZM57.9857 11.7474C57.9906 12.6222 57.78 13.4846 57.3729 14.2579C56.8599 15.2406 56.0864 16.0616 55.1379 16.6301C54.1894 17.1985 53.1029 17.4923 51.9986 17.4789H42.7586L46.5771 13.6421H50.7729C53.3186 13.6421 54.8271 12.6 54.2614 9.56842C53.7429 7.57895 53.2714 8.05263 48.4629 7.91053H40.8729V21.3158L37.0543 23.2105V6.3C37.0494 6.20488 37.0635 6.10974 37.0959 6.02023C37.1283 5.93072 37.1783 5.84867 37.2429 5.77895L38.7986 4.21579C38.8882 4.13045 39.0052 4.08006 39.1286 4.07368H51.9043C53.3488 4.07508 54.7465 4.58914 55.8505 5.52515C56.9546 6.46116 57.6941 7.75894 57.9386 9.18947C57.9658 9.39369 57.9815 9.59927 57.9857 9.80526V11.7474ZM33 25.1053H1.88571V8.24211C1.88571 6.55868 2.55127 4.9442 3.73596 3.75384C4.92066 2.56348 6.52745 1.89474 8.20286 1.89474H33V25.1053Z" fill="#495779"/>
+                    </svg>
+                    <div class="yk-text w-6 s-20 ml-10">{{ mainDonate }}</div>
+                </div>
+            </div>
+
+            <div v-if="selectedCharacter != null && !selectedCharacter.isBan" class="content-block center-bottom">
+                <button @click="selectCharacterEnd(selectedCharacter)" class="yk-btn orange" style="font-size: 18px; padding: 15px 25px;" :disabled="selectBlock">Выбрать персонажа</button>
+            </div>
+
+            <div v-if="characterList.length === 0" class="content-block center">
+                <svg width="231" height="809" viewBox="0 0 231 809">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M101.987 2.31803C84.13 7.27953 78.4403 15.9295 78.5146 37.996C78.5536 49.1407 78.2211 51.7696 76.7001 52.3537C73.1636 53.712 75.9268 75.659 79.7288 76.4113C80.8906 76.6418 82.2704 79.3706 83.308 83.492C84.2372 87.1805 86.0797 91.6848 87.4023 93.5028C90.0888 97.1901 90.9181 116.992 88.6384 122.996C86.5632 128.461 66.3742 137.161 50.2296 139.548C22.3379 143.67 9.95883 158.959 7.61331 192.182C7.17002 198.46 5.89131 206.615 4.77092 210.303C3.05867 215.943 2.73473 222.927 2.73473 254.2C2.73473 282.509 2.32311 292.893 1.00908 297.685C-0.514406 303.244 -0.402367 309.659 1.96142 352.555C4.47377 398.134 4.5237 402.21 2.7737 418.636C-0.641059 450.678 0.407481 456.819 12.09 473.178C18.3593 481.954 35.2431 489.135 33.4481 482.26C33.1083 480.959 33.4566 479.664 34.2226 479.384C35.7217 478.833 35.3467 478.056 30.3573 471.368C27.577 467.642 27.5721 467.584 30.0528 467.584C33.5808 467.584 33.1899 464.613 29.327 462.079C20.6172 456.364 15.5218 450.314 15.5218 445.684C15.5218 436.796 19.2081 438.197 24.0709 448.932C29.1541 460.159 31.8941 459.445 32.1414 446.834C32.24 441.816 32.7198 434.606 33.2094 430.813C34.0241 424.484 33.7842 423.366 30.2903 417.251C25.3788 408.657 25.3788 408.659 32.715 376.901L38.9478 349.918L38.2755 323.305C37.6715 299.424 37.8383 295.952 39.9013 289.489C42.7364 280.603 44.389 271.195 45.351 258.467C46.1816 247.478 49.2797 231.387 50.7387 230.485C51.2684 230.157 52.032 236.319 52.4363 244.178C52.9417 254.002 54.0024 260.944 55.8328 266.393C59.6787 277.85 59.4777 299.185 55.3201 320.654C47.0243 363.491 41.0826 412.225 41.1228 437.1C41.1374 446.153 41.9606 467.554 42.9532 484.655C46.4325 544.62 46.5396 557.894 43.6717 574.277C39.7065 596.929 38.0149 625.56 39.6127 642.964C40.9231 657.224 41.6245 659.908 50.1103 683.073C56.9325 701.698 62.3213 744.34 58.926 752.836C57.8276 755.587 56.9276 759.561 56.9276 761.669C56.9276 763.776 54.7355 772.247 52.0563 780.492C44.1247 804.901 46.3095 807.677 73.58 807.856C75.4725 807.869 79.4658 807.994 82.4543 808.134C90.6599 808.521 91.1958 806.788 90.8633 780.955C90.7123 769.219 91.0216 756.873 91.5502 753.52C92.3734 748.3 92.0336 746.283 89.1876 739.498C84.8936 729.261 84.0545 684.841 87.8614 669.385C91.1154 656.18 91.8497 623.197 89.1523 611.467C85.3222 594.813 85.405 593.55 91.4746 575.85C98.1057 556.513 100.331 541.652 101.933 505.994C102.865 485.281 103.504 480.046 106.179 471.242C109.964 458.786 112.655 446.328 113.635 436.727C114.707 426.222 117.051 428.455 117.971 440.857C118.455 447.392 120.371 456.442 123.24 465.755C127.464 479.458 127.818 481.858 128.823 503.555C130.671 543.496 132.922 558.761 139.504 576.023C144.697 589.639 145.104 596.557 141.662 612.686C138.915 625.56 139.588 654.634 142.947 668.166C146.86 683.93 146.05 729.342 141.676 739.461C138.803 746.105 138.413 748.221 139.206 752.874C139.723 755.911 139.999 767.745 139.818 779.17C139.48 800.487 140.899 809 144.788 809C149.774 809 175.19 806.176 179.014 805.198C185.203 803.613 185.147 798.981 178.709 780.046C176.03 772.165 173.838 763.67 173.838 761.168C173.838 758.664 172.923 754.33 171.806 751.532C167.803 741.514 174.471 699.796 184.27 673.57C193.332 649.315 194.385 614.336 187.261 574.277C184.23 557.235 184.238 549.879 187.353 495.629C191.221 428.267 187.531 372.855 175.703 320.654C170.64 298.313 170.657 283.974 175.77 264.126C177.881 255.93 178.709 249.418 178.709 241.02C178.709 220.228 182.442 230.01 185.446 258.676C186.442 268.18 188.631 280.7 190.308 286.498C193.272 296.739 193.337 297.758 192.566 322.26C191.7 349.784 191.574 348.693 199.502 382.503C205.317 407.306 205.388 409.693 200.53 417.244C197.027 422.691 196.835 423.565 197.651 430.395C198.131 434.418 198.41 441.691 198.269 446.554C197.88 460.006 204.125 460.076 208.138 446.665C209.971 440.541 213.61 438.2 215.086 442.195C216.849 446.968 214.717 450.889 206.634 457.735C198.125 464.942 196.513 467.584 200.624 467.584H203.231L200.408 471.368C195.419 478.056 195.044 478.833 196.543 479.384C197.309 479.664 197.676 480.89 197.358 482.107C196.312 486.112 200.528 486.072 208.149 482.006C216.149 477.737 219.993 473.035 226.861 459.121L231 450.736L229.82 436.907C229.171 429.301 228.097 418.062 227.432 411.931C226.506 403.395 226.789 390.968 228.641 358.89C231.455 310.113 231.602 300.714 229.618 296.041C228.592 293.628 228.141 281.029 228.096 253.59C228.046 223.692 227.649 213.716 226.397 210.913C225.498 208.901 224.269 201.494 223.666 194.452C220.557 158.153 210.135 144.871 180.573 139.533C162.053 136.189 144.226 128.521 142.127 122.996C140.191 117.897 140.642 96.2463 142.719 94.5197C144.505 93.0358 147.5 85.6637 148.812 79.5292C149.205 77.6843 150.281 76.176 151.201 76.176C154.72 76.176 157.508 53.6767 154.15 52.3866C152.739 51.844 152.372 48.8835 152.366 38.0289C152.35 8.5196 131.882 -5.98934 101.987 2.31803Z" fill="white" fill-opacity="0.26"/>
+                </svg>                    
+            </div>
+
+            <div v-if="characterList.length === 0" class="content-block center-bottom" style="z-index: 99999;">
+                <button @click="createCharacterMode = 1" class="yk-btn orange" style="font-size: 18px; padding: 15px 25px;">Создать персонажа</button>
+            </div>
+
+            <div class="content-block right-center" style="right: 100px;">
+
+                <div v-for="c in characterList" @click="!c.isBan && selectCharatcer(c)" class="auth-character-block list-mt-10" :class="{'active': selectedCharacter === c, 'ban': c.isBan}">
+                    <div @click="!c.isBan && selectCharatcer(c)" class="d-flex center-align" :style="{'padding': !c.isBan ? '30px 0px 0px 45px' : '20px 0px 0px 45px'}">
+                        <div class="pe-none" style="position: relative;">
+                            <svg width="91" height="74" viewBox="0 0 91 74" >
+                                <path d="M0.016367 24.8514C0.0519133 24.2793 0.467805 23.7926 1.0273 23.6681C1.19544 23.6307 2.72908 23.3034 4.79877 23.3034C4.91713 23.3034 5.03764 23.3044 5.15903 23.3067C8.28141 23.3659 10.8884 24.2148 12.6982 25.7612C12.8239 25.8685 12.9462 25.9812 13.0663 26.0971C13.5977 23.426 14.4709 20.8044 15.6845 18.2895C13.1061 16.892 11.27 15.0646 10.3648 12.9835C9.41552 10.8005 9.36629 8.05932 10.223 5.05619C10.8493 2.86032 11.7395 1.27727 11.7772 1.21062C12.0067 0.805745 12.4377 0.554077 12.9023 0.554077C13.0034 0.554077 13.1049 0.566163 13.2049 0.590156C13.279 0.60793 15.042 1.03537 17.0768 2.07528C19.8576 3.49642 21.8295 5.40153 22.779 7.58442C23.7282 9.7675 23.7775 12.5088 22.9208 15.5118C22.3103 17.6518 21.4517 19.2058 21.3736 19.3451C21.3573 19.3782 21.3434 19.4119 21.3257 19.4444C17.3018 26.8031 16.9099 35.4284 20.2504 43.1089C23.8215 51.3204 31.2175 57.2021 40.0342 58.842C41.5407 59.1223 42.5345 60.5706 42.2544 62.0769C42.2535 62.082 42.2519 62.0868 42.2509 62.092C42.1761 62.8076 41.991 64.1037 41.5485 65.5979C40.6614 68.5922 39.1502 70.8798 37.1786 72.2136C35.5643 73.3056 33.4247 73.8827 30.9918 73.8827C30.4794 73.8827 29.9476 73.8573 29.4116 73.807C27.1785 73.5978 25.5271 73.0467 25.3465 72.9846C24.8042 72.7982 24.4456 72.268 24.4742 71.6963C24.4839 71.5048 24.5879 69.7636 25.2244 67.6162C26.1114 64.622 27.6227 62.3342 29.5944 61.0005C29.5978 60.9982 29.6014 60.9961 29.6047 60.994C27.212 59.7132 24.9956 58.138 23.0022 56.3116C22.4788 56.6564 21.845 57.0396 21.1223 57.41C19.0543 58.4697 17.0551 59.0071 15.181 59.0071C14.6373 59.0071 14.1048 58.9602 13.594 58.8672L13.5924 58.8669C13.5003 58.8502 13.409 58.8319 13.3185 58.8121C10.9925 58.3051 8.74049 56.7416 6.80589 54.2901C5.39008 52.4965 4.62779 50.8499 4.59597 50.7805C4.35675 50.2593 4.49289 49.6337 4.92691 49.2598C5.07194 49.1348 6.40208 48.0098 8.39712 46.9873C10.4654 45.9275 12.4643 45.3902 14.3387 45.3902C14.6341 45.3902 14.9256 45.4057 15.2126 45.4332C15.1962 45.3959 15.1785 45.3593 15.1621 45.322C14.1924 43.0923 13.4861 40.7966 13.0363 38.4722C12.6545 38.4957 12.2427 38.5108 11.8051 38.5108C11.6864 38.5108 11.5661 38.5097 11.4434 38.5074C8.32123 38.4482 5.71408 37.5994 3.90442 36.0531C2.0944 34.5065 0.849217 32.0637 0.303759 28.989C-0.0950706 26.7403 0.011746 24.9278 0.016367 24.8514Z" fill="url(#auth_ico_level_gradient)"/>
+                                <path d="M90.9844 24.8514C90.9489 24.2793 90.533 23.7926 89.9735 23.6681C89.8054 23.6307 88.2717 23.3034 86.2019 23.3034C86.0835 23.3034 85.9632 23.3044 85.8416 23.3067C82.7192 23.3659 80.1123 24.2148 78.3024 25.7612C78.1768 25.8685 78.0545 25.9812 77.9343 26.0971C77.4029 23.426 76.5297 20.8044 75.3162 18.2895C77.8945 16.892 79.7307 15.0646 80.6359 12.9835C81.5851 10.8005 81.6344 8.05932 80.7777 5.05619C80.1514 2.86032 79.2611 1.27727 79.2234 1.21062C78.994 0.805745 78.563 0.554077 78.0984 0.554077C77.9973 0.554077 77.8958 0.566163 77.7957 0.590156C77.7216 0.60793 75.9587 1.03537 73.9238 2.07528C71.1431 3.49642 69.1711 5.40153 68.2217 7.58442C67.2724 9.7675 67.2232 12.5088 68.0799 15.5118C68.6904 17.6518 69.549 19.2058 69.6272 19.3451C69.6436 19.3782 69.6572 19.4119 69.6752 19.4444C73.699 26.8031 74.0911 35.4284 70.7505 43.1089C67.1791 51.3204 59.7834 57.2021 50.9667 58.842C49.4602 59.1223 48.4664 60.5706 48.7465 62.0769C48.7474 62.082 48.749 62.0868 48.75 62.092C48.8249 62.8076 49.0099 64.1037 49.4524 65.5979C50.3395 68.5922 51.8507 70.8798 53.8223 72.2136C55.4366 73.3056 57.5762 73.8827 60.0091 73.8827C60.5215 73.8827 61.0533 73.8573 61.5893 73.807C63.8223 73.5978 65.4738 73.0467 65.6544 72.9846C66.1966 72.7982 66.5553 72.268 66.5267 71.6963C66.5169 71.5048 66.4129 69.7636 65.7767 67.6162C64.8896 64.622 63.3784 62.3342 61.4066 61.0005C61.4032 60.9982 61.3997 60.9961 61.3963 60.994C63.7891 59.7132 66.0054 58.138 67.9988 56.3116C68.5222 56.6564 69.156 57.0396 69.8787 57.41C71.9468 58.4697 73.9459 59.0071 75.8201 59.0071C76.3637 59.0071 76.8962 58.9602 77.407 58.8672L77.4086 58.8669C77.5007 58.8502 77.592 58.8319 77.6825 58.8121C80.0085 58.3051 82.2605 56.7416 84.1951 54.2901C85.6109 52.4965 86.3732 50.8499 86.405 50.7805C86.6442 50.2593 86.5081 49.6337 86.0741 49.2598C85.929 49.1348 84.5989 48.0098 82.6039 46.9873C80.5356 45.9275 78.5367 45.3902 76.6623 45.3902C76.3669 45.3902 76.0755 45.4057 75.7884 45.4332C75.8048 45.3959 75.8225 45.3593 75.8389 45.322C76.8086 43.0923 77.5149 40.7966 77.9647 38.4722C78.3465 38.4957 78.7583 38.5108 79.1959 38.5108C79.3146 38.5108 79.4349 38.5097 79.5576 38.5074C82.6798 38.4482 85.2869 37.5994 87.0966 36.0531C88.9066 34.5065 90.1518 32.0637 90.6972 28.989C91.0959 26.7403 90.989 24.9278 90.9844 24.8514Z" fill="url(#auth_ico_level_gradient)"/>
+                                <defs>
+                                <linearGradient id="auth_ico_level_gradient" x1="21.1508" y1="0.554077" x2="21.1508" y2="73.8827" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFE600"/>
+                                <stop offset="1" stop-color="#FF7A00"/>
+                                </linearGradient>
+                                </defs>
+                            </svg>                                
+                            <div class="yk-text w-6" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); text-align: center; font-size: 33px;">{{ c.level }}</div>
+                        </div>
+                        <div v-if="!c.isBan" class="d-flex column ml-20 pe-none">
+                            <div class="yk-text w-6 s-20">{{ c.name }}</div>
+                            <div class="d-flex center-align mt-10">
+                                <svg width="17" height="17" viewBox="0 0 17 17" >
+                                    <path d="M8.99805 10.9221C9.57063 10.7815 9.99414 10.4129 9.99414 9.98937C9.99414 9.5658 9.57063 9.19724 8.99805 9.05663V10.9221Z" fill="url(#auth_ico_cash_gradient)"/>
+                                    <path d="M8.5 3.02148C5.47915 3.02148 3.02148 5.47915 3.02148 8.5C3.02148 11.5209 5.47915 13.9785 8.5 13.9785C11.5209 13.9785 13.9785 11.5209 13.9785 8.5C13.9785 5.47915 11.5209 3.02148 8.5 3.02148ZM10.9902 9.98929C10.9902 10.9515 10.1333 11.7561 8.99805 11.9412V12.4844C8.99805 12.7597 8.77529 12.9824 8.5 12.9824C8.22471 12.9824 8.00195 12.7597 8.00195 12.4844V11.9412C6.8667 11.7561 6.00977 10.9515 6.00977 9.98929C6.00977 9.71401 6.23253 9.49125 6.50781 9.49125C6.7831 9.49125 7.00586 9.71401 7.00586 9.98929C7.00586 10.4129 7.42937 10.7814 8.00195 10.922V8.95289C6.8667 8.76782 6.00977 7.96324 6.00977 7.00101C6.00977 6.03879 6.8667 5.23421 8.00195 5.04913V4.51078C8.00195 4.23549 8.22471 4.01273 8.5 4.01273C8.77529 4.01273 8.99805 4.23549 8.99805 4.51078V5.04913C10.1333 5.23421 10.9902 6.03879 10.9902 7.00101C10.9902 7.2763 10.7675 7.49906 10.4922 7.49906C10.2169 7.49906 9.99414 7.2763 9.99414 7.00101C9.99414 6.57744 9.57063 6.20888 8.99805 6.06827V8.03741C10.1333 8.22245 10.9902 9.02703 10.9902 9.98929Z" fill="url(#auth_ico_cash_gradient)"/>
+                                    <path d="M8.00195 6.06817C7.42937 6.20879 7.00586 6.57734 7.00586 7.00091C7.00586 7.42449 7.42937 7.79304 8.00195 7.93366V6.06817Z" fill="url(#auth_ico_cash_gradient)"/>
+                                    <path d="M8.5 0C3.83131 0 0 3.83131 0 8.5C0 13.1687 3.83131 17 8.5 17C13.1687 17 17 13.1687 17 8.5C17 3.83131 13.1687 0 8.5 0ZM8.5 14.9746C4.93 14.9746 2.02539 12.07 2.02539 8.5C2.02539 4.93 4.93 2.02539 8.5 2.02539C12.07 2.02539 14.9746 4.93 14.9746 8.5C14.9746 12.07 12.07 14.9746 8.5 14.9746Z" fill="url(#auth_ico_cash_gradient)"/>
+                                    <defs>
+                                    <linearGradient id="auth_ico_cash_gradient" x1="8.5" y1="0" x2="8.5" y2="17" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#DBFF00"/>
+                                    <stop offset="1" stop-color="#00AA3A"/>
+                                    </linearGradient>
+                                    </defs>
+                                </svg>
+                                <div class="yk-text w-5 s-15 ml-5">{{ formatMoney(c.cash) }} $</div>
+                                <svg width="25" height="19" viewBox="0 0 25 19" style="margin-left: 20px;">
+                                    <path d="M25 4.95898V3.64062C25 2.13047 23.7758 0.90625 22.2656 0.90625H2.73438C1.22422 0.90625 0 2.13047 0 3.64062V4.95898C0 5.0938 0.109326 5.20312 0.244141 5.20312H24.7559C24.8907 5.20312 25 5.0938 25 4.95898Z" fill="url(#auth_ico_bank_gradient)"/>
+                                    <path d="M0 7.00977V15.3594C0 16.8695 1.22422 18.0938 2.73438 18.0938H22.2656C23.7758 18.0938 25 16.8695 25 15.3594V7.00977C25 6.87495 24.8907 6.76562 24.7559 6.76562H0.244141C0.109326 6.76562 0 6.87495 0 7.00977ZM6.25 13.4062C6.25 13.8377 5.9002 14.1875 5.46875 14.1875H4.6875C4.25605 14.1875 3.90625 13.8377 3.90625 13.4062V12.625C3.90625 12.1936 4.25605 11.8438 4.6875 11.8438H5.46875C5.9002 11.8438 6.25 12.1936 6.25 12.625V13.4062Z" fill="url(#auth_ico_bank_gradient)"/>
+                                    <defs>
+                                    <linearGradient id="auth_ico_bank_gradient" x1="12.5" y1="0.90625" x2="12.5" y2="18.0938" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#BD00FF"/>
+                                    <stop offset="1" stop-color="#7000FF"/>
+                                    </linearGradient>
+                                    </defs>
+                                </svg>
+                                <div class="yk-text w-5 s-15 ml-5">{{ formatMoney(c.bank) }} $</div>                                                      
+                            </div>
+                            <div class="yk-text w-5 s-15 mt-10" style="color: #738CC8;">Организация: <span style="color: #fff;">{{ c.faction }}</span></div>
+                        </div>   
+                        <div v-else class="d-flex column ml-20 pe-none">
+                            <div class="yk-text w-6 s-20">{{ c.name }}</div>
+                            <div class="yk-text w-5 s-15 mt-10" style="color: #794971;">Дата блокировки: <span style="color: #fff;">{{ c.banDateTime }}</span></div>
+                            <div class="yk-text w-5 s-15 " style="color: #794971;">Дата разблокировки: <span style="color: #fff;">{{ c.unBanDateTime }}</span></div>
+                            <div class="yk-text w-5 s-15 " style="color: #794971;">Выдал бан: <span style="color: #fff;">{{ c.banAdminNick }}</span></div>
+                            <div class="yk-text w-5 s-15 " style="color: #794971;">Причина: <span style="color: #fff;">{{ c.banReason }}</span></div>
+                        </div>
+                        <div v-if="!c.isBan" @click.capture="deleteCharacter = c;" style="position: absolute; bottom: 10px; right: -38px; background: linear-gradient(90deg, #960024 0%, #D0004B 16.67%, #FF0F00 100%); border-radius: 0px 6px 6px 0px; padding: 8px;">
+                            <svg class="pe-none" width="22" height="29" viewBox="0 0 22 29">
+                                <path d="M3.30242 26.2122C3.36935 27.5589 4.47282 28.6108 5.82375 28.6108H16.0589C17.4099 28.6108 18.5134 27.559 18.5803 26.2122L20.0546 9.25653H1.82812L3.30242 26.2122ZM13.4658 13.464H15.1488V22.7204H13.4658V13.464ZM10.0999 13.464H11.7829V22.7204H10.0999V13.464ZM6.73391 13.464H8.41689V22.7204H6.73391V13.464Z" fill="#8F0011"/>
+                                <path d="M15.1469 4.20746V2.52448C15.1469 1.13254 14.0144 0 12.6224 0H9.25641C7.86447 0 6.73193 1.13254 6.73193 2.52448V4.20746H0V7.57343H21.8788V4.20746H15.1469ZM8.41492 4.20746V2.52448C8.41492 2.06048 8.79247 1.68298 9.25641 1.68298H12.6224C13.0864 1.68298 13.4639 2.06048 13.4639 2.52448V4.20746H8.41492Z" fill="#8F0011"/>
+                            </svg>                                
+                        </div>               
+                    </div>
+                </div>
+
+                <div v-if="characterList.length < 3 && characterList.length !== 0" @click.capture="createCharacterMode = 1" style="width: 480px; height: 147px; background: rgba(19, 26, 52, 0.42); border-radius: 9px 75px; margin-top: 10px;">
+                    <div class="d-flex center-align" style="padding: 40px 45px; pointer-events: none;">
+                        <svg width="83" height="67" viewBox="0 0 83 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30.9573 34.6143C40.7568 34.5668 48.7036 26.8379 48.6549 17.3071C48.6061 7.77632 40.6593 0.0473741 30.8598 0.094791C21.0604 0.142208 13.1136 7.87115 13.1623 17.4019C13.2111 26.8853 21.1091 34.5668 30.8598 34.6143H30.9573Z" fill="#FFFFFF" />
+                            <path d="M44.4222 37.8156C43.36 37.7253 42.307 37.9793 41.3111 38.3561C37.9872 39.6136 34.4669 40.2629 30.9097 40.3041C27.3647 40.3041 23.8927 39.629 20.6203 38.3711C19.6149 37.9846 18.55 37.7249 17.4756 37.8173C7.66612 38.6609 0 46.6249 0 56.3784V56.949C0 60.2625 2.20451 63.2024 5.45871 63.9638C13.9806 65.9575 22.7046 66.9607 31.4947 66.9998C39.9593 66.9998 48.3586 65.9821 56.5317 63.9988C59.7509 63.2176 61.9169 60.2946 61.9169 57.0102V56.3784C61.9169 46.6186 54.2408 38.6506 44.4222 37.8156Z" fill="#FFFFFF" />
+                            <path d="M81.7154 26.1787C81.1549 25.664 80.445 25.4066 79.6977 25.3698H71.6644V17.3913C71.6644 16.6192 71.3655 15.8838 70.8424 15.2956C69.7215 14.1925 67.8906 14.2293 66.7697 15.3323C66.2092 15.8838 65.9103 16.6192 65.9477 17.3913V25.3698H57.877C57.1298 25.3698 56.3825 25.6272 55.8594 26.1787C55.2989 26.7302 55 27.4656 55 28.2377C55.0374 29.7819 56.3077 30.9953 57.877 30.9953H65.9477V38.8635C65.9477 39.5988 66.2466 40.2974 66.7697 40.8489C67.928 41.9152 69.6841 41.9152 70.8424 40.8489C71.3655 40.2974 71.627 39.5988 71.6644 38.8635V30.9953H79.6977C80.445 30.9585 81.1549 30.7011 81.7154 30.2231C82.2384 29.6716 82.5 28.973 82.5 28.2377C82.5 27.4656 82.2384 26.7302 81.7154 26.1787Z" fill="#FFFFFF" />
+                        </svg>
+                        <span class="yk-text w-6 s-22 ml-10" style="white-space: nowrap;">Создать нового персонажа</span>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="createCharacterMode == 1" class="content-block center">
+                <div class="yk-block" style="border-radius: 10px; position: relative; width: 460px; height: 442px;">
+                    <div class="yk-content" style="padding: 40px 20px 60px 20px;">
+                        <div class="yk-text w-7 s-18 text-center" style="color: #495779;">КАК ВЫБРАТЬ ИМЯ ПРАВИЛЬНО</div>
+                        <div class="yk-text w-4 s-18 mt-15">- Имя и Фамилия латинскими символами</div>
+                        <div class="yk-text w-4 s-18 ">- Фамилия содержит 1 или 2 заглавные буквы (Только для приставок De, Mc и т.п.)</div>
+                        <div class="yk-text w-4 s-18 ">- Используйте только существующие в реальном мире имена</div>
+                        <div class="yk-input-block" style="margin-top: 50px;">
+                            <input v-model="createCharacterForm.firstName" class="yk-input center" placeholder="Имя">
+                        </div>
+                        <div class="yk-input-block" style="margin-top: 10px;">
+                            <input v-model="createCharacterForm.secondName" class="yk-input center" placeholder="Фамилия">
+                        </div>
+                        <div class="yk-input-block" style="margin-top: 10px;">
+                            <input v-model="createCharacterForm.age" class="yk-input center" placeholder="Возраст">
+                        </div>
+                    </div>
+                    <div class="yk-btn-h-list w-100" style="position: absolute; left: 50%; bottom: -15px; transform: translateX(-50%); text-align: center;">
+                        <button @click="createCharacter(createCharacterForm.firstName, createCharacterForm.secondName, createCharacterForm.age);" :disabled="authBlock" class="yk-btn s-15 p-10-15 green" style="width: 150px;">Создать</button>
+                        <button @click="createCharacterMode = 0" class="yk-btn s-15 p-10-15 purple" style="width: 150px;">Отмена</button>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="deleteCharacter" class="content-block center">
+                <div class="yk-block" style="border-radius: 10px; position: relative; width: 460px; height: 242px;">
+                    <div class="yk-content" style="padding: 40px 20px 60px 20px;">
+                        <div class="yk-text w-7 s-18 text-center">УДАЛЕНИЕ ПЕРСОНАЖА</div>
+                        <div class="yk-input-block" style="margin-top: 50px;">
+                            <input v-model="deleteCharacterForm.pass" type="password" class="yk-input center" placeholder="Пароль от аккаунта">
+                        </div>
+                    </div>
+                    <div class="yk-btn-h-list w-100" style="position: absolute; left: 50%; bottom: -15px; transform: translateX(-50%); text-align: center;">
+                        <button @click="removeCharacter(deleteCharacterForm.pass, deleteCharacter.id);" :disabled="authBlock" class="yk-btn s-15 p-10-15 red" style="width: 150px;">Удалить</button>
+                        <button @click="deleteCharacter = null" class="yk-btn s-15 p-10-15 orange" style="width: 150px;">Отмена</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </template>
+    </div>
+
+    <script>const vueApp=new Vue({el:"#authMenu",data:{authStep:0,authMode:0,authBlock:!1,limitError:!1,queue:0,selectBlock:!1,serverData:{enableServerPass:!1,login:"",serverId:1,serverName:"",customLogo:"",autoLoginPassword:"",isAutoLoginEnabled:!1},formAuth:{login:"",pass:"",serverPass:"",error:""},formReg:{login:"",pass:"",confirmPass:"",email:"",error:""},createCharacterMode:0,createCharacterForm:{firstName:"",secondName:"",age:""},deleteCharacter:null,deleteCharacterForm:{pass:""},mainLogin:"",mainDonate:0,characterList:[],selectedCharacter:null,loaded:!1,loadedFail:!1,news:[]},methods:{load(a){this.serverData=a,this.formAuth.login=a.login,this.authBlock=!1,this.selectBlock=!1,this.loaded=!0,this.formAuth.pass="",document.body.classList.add("server-bg-"+this.serverData.serverId),$.ajax({url:"https://gta5rp.com/api/news?from=game",crossDomain:!0,success:a=>{this.news=a.items.data.map(a=>({id:a.id,img:a.img_link,desc:a.little_text,date:a.updated_at.split(" ")[0]}))}}),this.serverData.isAutoLoginEnabled&&this.$nextTick(()=>{this.$nextTick(()=>{this.$nextTick(()=>{setTimeout(()=>{this.auth()},1e3)})})})},async auth(){if(!this.authBlock){if(this.authBlock=!0,this.limitError=!1,this.serverData.isAutoLoginEnabled&&(this.formAuth.pass=this.serverData.autoLoginPassword),3>this.formAuth.pass.length||3>this.formAuth.login.length)return this.authBlock=!1,void(this.formAuth.error="\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0432\u0441\u0435 \u043F\u043E\u043B\u044F");if(/[а-яА-ЯЁё]/.test(this.formAuth.pass))return this.authBlock=!1,void(this.formAuth.error="\u0412 \u043F\u0430\u0440\u043E\u043B\u0435 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C \u0440\u0443\u0441\u0441\u043A\u0438\u0445 \u0431\u0443\u043A\u0432.");try{const a=await serverAPI.getAsync("server_playerAuth_auth",{login:this.formAuth.login,pass:this.formAuth.pass,serverPass:this.formAuth.serverPass,isAutoLoginEnabled:this.serverData.isAutoLoginEnabled});this.characterList=a.characterList,this.mainLogin=a.login,this.mainDonate=a.donate,0<a.queue?(this.limitError=!0,this.queue=a.queue):(this.authStep=1,this.authBlock=!1,this.endQueue()),mp.trigger("client_playerAuth_startSelectCharatcer");const b=await rpc.callClient("client_global_storage_get");return b.auth.login=this.formAuth.login,void(await rpc.callClient("client_global_storage_flush",b))}catch(a){this.serverData.isAutoLoginEnabled&&(this.serverData.isAutoLoginEnabled=!1,this.formAuth.pass=""),this.formAuth.error=a}this.authBlock=!1}},async reg(){if(!this.authBlock){if(this.authBlock=!0,this.formReg.pass!=this.formReg.confirmPass)return this.authBlock=!1,void(this.formReg.error="\u041F\u0430\u0440\u043E\u043B\u0438 \u043D\u0435 \u0441\u043E\u0432\u043F\u0430\u0434\u0430\u044E\u0442");if(/[а-яА-ЯЁё]/.test(this.formReg.pass))return this.authBlock=!1,void(this.formReg.error="\u0412 \u043F\u0430\u0440\u043E\u043B\u0435 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C \u0440\u0443\u0441\u0441\u043A\u0438\u0445 \u0431\u0443\u043A\u0432.");if(3>this.formReg.email.length||3>this.formReg.login.length||3>this.formReg.pass.length)return this.authBlock=!1,void(this.formReg.error="\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0432\u0441\u0435 \u043F\u043E\u043B\u044F");try{await serverAPI.getAsync("server_playerAuth_reg",{login:this.formReg.login,email:this.formReg.email,pass:this.formReg.pass}),this.authMode=0,this.formAuth.login=this.formReg.login,this.formAuth.pass=this.formReg.pass}catch(a){this.formReg.error=a}this.authBlock=!1}},async selectCharatcer(a){if(!this.authBlock)return this.authBlock=!0,this.selectedCharacter==a?void(this.authBlock=!1):void(this.selectedCharacter=a,mp.trigger("client_playerAuth_showPlayer"),serverAPI.triggerRemote("server_playerAuth_getCharacterData",a.id+""),this.authBlock=!1)},async selectCharacterEnd(a){this.selectBlock||(this.selectBlock=!0,serverAPI.triggerRemote("server_playerAuth_selectCharacter",a.id+""),this.selectBlock=!1)},async createCharacter(a,b,c){if(!this.authBlock){this.authBlock=!0;try{await serverAPI.getAsync("server_playerAuth_createCharacter",{firstName:a,secondName:b,age:c})}catch(a){serverAPI.notifyError(a)}this.authBlock=!1}},async removeCharacter(a){if(!this.authBlock){this.authBlock=!0;try{await serverAPI.getAsync("server_playerAuth_deleteCharacter",{pass:a,id:this.deleteCharacter.id}),this.deleteCharacterForm.pass="",this.characterList=this.characterList.filter(a=>a!=this.deleteCharacter),this.selectedCharacter=null,mp.trigger("client_playerAuth_hidePlayer"),this.deleteCharacter=null}catch(a){serverAPI.notifyError(a)}finally{this.authBlock=!1}this.authBlock=!1}},endQueue(){this.authStep=1,this.authBlock=!1,document.body.classList.remove("server-bg-"+this.serverData.serverId)},openNews(a){mp.trigger("__client_menu_playerMenu_startDonate",`https://gta5rp.com/news/${a}`)},formatMoney(a){return serverAPI.currencyFormatSpace(a)}},mounted(){}});rpc.on("menu_load",vueApp.load);</script>
+</body>
+</html>
