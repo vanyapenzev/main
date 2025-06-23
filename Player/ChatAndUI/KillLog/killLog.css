@@ -1,0 +1,23 @@
+#killLogBlock {
+	height: 30vh;
+	display: flex;
+	flex-direction: column-reverse;
+	flex-wrap: nowrap;
+	flex-shrink: 0;
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	overflow: hidden;
+    pointer-events: none;
+}
+
+.killLog-item {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-left: 50px;
+    background: linear-gradient(to right, transparent 5%, rgba(0, 0, 0, 0.3));
+    border-radius: 1px;
+}

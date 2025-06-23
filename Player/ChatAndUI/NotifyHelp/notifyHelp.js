@@ -1,0 +1,1 @@
+rpc.on("client_browser_notifyHelp_show",function(a){$("#notifyHelpKey").text(a.key),$("#notifyHelpText").text(a.text),$("#notifyHelpBlock").show()}),rpc.on("client_browser_notifyHelp_hide",function(){$("#notifyHelpBlock").hide()});

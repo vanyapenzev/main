@@ -1,0 +1,22 @@
+#notifyHelpBlock {
+    position: absolute;
+    left: 50%; 
+    bottom: 15%; 
+    transform: translateX(-50%);
+}
+
+#notifyHelpTextBlock {
+    font-family: 'Geometria Regular';
+    font-size: 21px;
+    color: #fff;
+    text-shadow: 1px 1px 1px black;
+}
+
+#notifyHelpKey {
+    padding: 2.5px 5px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    font-family: 'Geometria Regular';
+    font-size: 21px;
+    color: #fff;
+}

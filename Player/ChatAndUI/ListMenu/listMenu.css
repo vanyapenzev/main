@@ -1,0 +1,27 @@
+#listMenuBlock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    max-height: 30%;
+    overflow-y: auto;
+}
+#listMenuBlock::-webkit-scrollbar {
+    width: 0px;
+}
+#listMenuBlock::-webkit-scrollbar-track {
+    width: 0px;
+}
+#listMenuBlock::-webkit-scrollbar-thumb {
+    width: 0px;
+}
+
+.listMenu-item-block {
+    margin-bottom: 3px;
+    padding: 10px;
+    background: linear-gradient(90deg, rgba(16, 19, 27, 0.54) 0%, rgba(21, 26, 40, 0.34) 100%);
+    border-radius: 5px;
+}
+.listMenu-item-block:hover {
+    background: linear-gradient(90deg, rgba(59, 62, 70, 0.54) 0%, rgba(123, 137, 172, 0.34) 100%);
+}
